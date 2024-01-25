@@ -12,6 +12,8 @@ mongoose.connect(DB).then(()=> {
     console.log("no connection")
 })
 
+// this will enable us to use 'json' formatted data
+app.use(express.json());
 
 // for routing to router/auth
 app.use(require('./router/auth'));
