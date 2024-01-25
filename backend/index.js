@@ -5,12 +5,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
-const DB = 'mongodb+srv://creativeap07:creativeap07@cluster0.dzqxtv5.mongodb.net/mern?retryWrites=true&w=majority'
-mongoose.connect(DB).then(()=> {
-    console.log("connection successful")
-}).catch(()=> {
-    console.log("no connection")
-})
+
+// we exported conn.js from db DIR
+require("./db/conn")
 
 // this will enable us to use 'json' formatted data
 app.use(express.json());
