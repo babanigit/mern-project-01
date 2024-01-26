@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // will hide this DB data afterwards
-const DB ="mongodb+srv://creativeap07:creativeap07@cluster0.dzqxtv5.mongodb.net/mern?retryWrites=true&w=majority";
+const DB ="mongodb+srv://creativeap07:creativeap07@cluster0.dzqxtv5.mongodb.net/mern?retryWrites=true&w=majority"
 
 mongoose
   .connect(DB)

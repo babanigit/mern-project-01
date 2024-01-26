@@ -1,3 +1,5 @@
+
+// you exported mongoose here, or backend 
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
@@ -28,5 +30,6 @@ const userSchema = new mongoose.Schema({
     },
 })
 
-const User = mongoose.model('USER',userSchema)
+// "useras" named database is created in backend in the structure of userSchema 
+const User = mongoose.model('USERA',userSchema)
 module.exports = User;
