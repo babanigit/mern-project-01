@@ -86,4 +86,37 @@ router.post("/register", async (req, res) => {
 
 });
 
+// login route
+
+router.post('/signin', async (req,res)=>{
+  // console.log(req.body);
+  // res.json({message:"awesome"});
+
+  try{
+    const{email,password}= req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "null data, please fill the data" });
+    }
+
+    // for getting the email data from database
+    const  userLogin = await User.findOne({ email: email});
+    console.log(userLogin);
+
+    // if there is no data in database then error
+    if (!userLogin) {
+      res.json({ error: "user error"});
+    }else {
+      res.json({message:"user Signin Successfully"})
+    }
+
+
+  }catch(err){
+    console.log(err);
+  }
+
+})
+
+
+
 module.exports = router;
