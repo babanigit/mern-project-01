@@ -119,6 +119,11 @@ router.post("/signin", async (req, res) => {
       const token = await userLogin.generateAuthToken();
       console.log(token);
 
+      // cookie
+      res.cookie("jwtToken", token , {
+        expires: new Date(Date.now() + 2589000000)
+      })
+
 
 
       
