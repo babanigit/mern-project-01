@@ -47,11 +47,9 @@ router.get("/", (req, res) => {
 //     });
 // });
 
-
 // using await async
 router.post("/register", async (req, res) => {
-
-  // this is request from postman or data stored using postman
+  // this is request from postman or data stored using postman or the frontend
   const { name, email, phone, work, password, cPassword } = req.body;
 
   // those three lines are for checking if postman is working properly or not??
@@ -74,49 +72,50 @@ router.post("/register", async (req, res) => {
     if (userExist)
       return res.status(422).json({ error: "email already registered" });
 
-    const user = new User({ name, email, phone, work, password, cPassword });
+    else if (password != cPassword)
+      return res.status(422).json({ error: "password are not matching " });
+    
+    else {
+      const user = new User({ name, email, phone, work, password, cPassword });
 
-    await user.save();
+      // password hashing
+      await user.save();
+    }
 
-    res.status(201).json({ message: "user registered successfully in backend" });
-
+    res
+      .status(201)
+      .json({ message: "user registered successfully in backend" });
   } catch (err) {
     console.log(err);
   }
-
 });
 
 // login route
 
-router.post('/signin', async (req,res)=>{
+router.post("/signin", async (req, res) => {
   // console.log(req.body);
   // res.json({message:"awesome"});
 
-  try{
-    const{email,password}= req.body;
+  try {
+    const { email, password } = req.body;
 
     if (!email || !password) {
       return res.status(400).json({ error: "null data, please fill the data" });
     }
 
     // for getting the email data from database
-    const  userLogin = await User.findOne({ email: email});
+    const userLogin = await User.findOne({ email: email });
     console.log(userLogin);
 
     // if there is no data in database then error
     if (!userLogin) {
-      res.json({ error: "user error"});
-    }else {
-      res.json({message:"user Signin Successfully"})
+      res.json({ error: "user error" });
+    } else {
+      res.json({ message: "user Signin Successfully" });
     }
-
-
-  }catch(err){
+  } catch (err) {
     console.log(err);
   }
-
-})
-
-
+});
 
 module.exports = router;
