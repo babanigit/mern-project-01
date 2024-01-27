@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 require("../db/conn");
 const User = require("../model/userSchema");
@@ -71,10 +73,8 @@ router.post("/register", async (req, res) => {
 
     if (userExist)
       return res.status(422).json({ error: "email already registered" });
-
     else if (password != cPassword)
       return res.status(422).json({ error: "password are not matching " });
-    
     else {
       const user = new User({ name, email, phone, work, password, cPassword });
 
@@ -91,7 +91,6 @@ router.post("/register", async (req, res) => {
 });
 
 // login route
-
 router.post("/signin", async (req, res) => {
   // console.log(req.body);
   // res.json({message:"awesome"});
@@ -104,14 +103,34 @@ router.post("/signin", async (req, res) => {
     }
 
     // for getting the email data from database
+    // first email is backend and second is from frontend
+    // it will search for u the email u mentioned
     const userLogin = await User.findOne({ email: email });
+    console.log("useLogin data")
     console.log(userLogin);
 
-    // if there is no data in database then error
-    if (!userLogin) {
-      res.json({ error: "user error" });
+    // this /if' is to check login credentials...
+    if (userLogin) {
+      // bcrypt.compare will return boolean
+      const isMatch = await bcrypt.compare(password, userLogin.password);
+
+
+      // jsonwebtoken
+      const token = await userLogin.generateAuthToken();
+      console.log(token);
+
+
+
+      
+      // this 'if statement' is for checking passwd credentials...
+      if (!isMatch) {
+        // res.json({ error: "user error" });
+        res.status(400).json({ error: "invalid credentials pass " });
+      } else {
+        res.json({ message: "user Signing Successfully" });
+      }
     } else {
-      res.json({ message: "user Signin Successfully" });
+      res.status(400).json({ error: "invalid credentials user " });
     }
   } catch (err) {
     console.log(err);

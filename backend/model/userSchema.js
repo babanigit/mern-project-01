@@ -1,9 +1,12 @@
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 
 // you exported mongoose here, or backend 
 const mongoose = require("mongoose");
 
+
+// this is the model 
 const userSchema = new mongoose.Schema({
 
     name:{
@@ -30,10 +33,18 @@ const userSchema = new mongoose.Schema({
         type:String,
         require:true
     },
+    tokens:[
+        {
+            token:{
+                type:String,
+                require:true
+            }
+        }
+    ]
 })
 
 
-// we are hashing the password
+// we are hashing the password here
 userSchema.pre('save' , async function(next){
     console.log("hi from userSchema")
     if(this.isModified('password')){
@@ -42,6 +53,22 @@ userSchema.pre('save' , async function(next){
     }
     next();
 } )
+
+
+// we are generating token
+userSchema.methods.generateAuthToken = async function() {
+    try {
+        let tokenHello = jwt.sign({ _id : this._id }, "MYNAMEISANIKETVILASPANCHAL" )
+        this.tokens = this.tokens.concat({ token:tokenHello });
+        await this.save();
+
+        return tokenHello;
+
+    }catch (err) {
+        console.log(err);
+    }
+}
+
 
 // "useras" named database is created in backend in the structure of userSchema 
 const User = mongoose.model('USERA',userSchema)
