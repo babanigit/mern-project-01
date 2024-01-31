@@ -117,7 +117,7 @@ router.post("/signin", async (req, res) => {
 
       // jsonwebtoken
       const token = await userLogin.generateAuthToken();
-      console.log(token);
+      // console.log(token);
 
       // cookie
       res.cookie("jwtToken", token , {

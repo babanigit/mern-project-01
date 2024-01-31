@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 
 
-// we exported conn.js from db DIR
+// we exported conn.js 
 require("./db/conn")
 
 // this will enable us to use 'json' formatted data

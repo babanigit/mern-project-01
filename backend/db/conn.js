@@ -1,3 +1,5 @@
+// THIS IS CONNECTION TO THE MONGODB 
+
 const mongoose = require("mongoose");
 
 // will hide this DB data afterwards
