@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate as useHistory } from "react-router-dom";
 
 const SignUp = () => {
+  const history = useHistory();
+
   const [user, userSet] = useState({
     name: "",
     email: "",
@@ -14,7 +16,6 @@ const SignUp = () => {
 
   let name, value;
   const handleInput = (e) => {
-
     name = e.target.name;
     value = e.target.value;
 
@@ -24,12 +25,36 @@ const SignUp = () => {
     console.log(user);
   };
 
-  const submit = async(e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    const { name,email,phone,work,password,cPassword} = user;
+    const { name, email, phone, work, password, cPassword } = user;
 
+    const res = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        work,
+        password,
+        cPassword,
+      }),
+    });
+    const data = await res.json();
+    if (data.Status === 422 || !data) {
+      window.alert("invalid Registration");
+      console.log("invalid Registration");
+    } else {
+      window.alert(" successful ");
+      console.log(" successful ");
 
-  }
+      //  we used navigate instate of history.push
+      history("/signin", { replace: true });
+    }
+  };
 
   return (
     <>
@@ -39,9 +64,7 @@ const SignUp = () => {
           <div className="max-w-[450px] h-[630px] mx-auto bg-black/75 text-white">
             <div className="max-w-[320px] mx-auto py-16">
               {/* <h1 className="text-3xl font-bold">Sign Up</h1> */}
-              <form className="w-full flex flex-col py-4"
-                method="POST"
-              >
+              <form className="w-full flex flex-col py-4" method="POST">
                 <input
                   className="p-3 my-2 bg-gray-700 rounded"
                   type="text"
@@ -72,11 +95,11 @@ const SignUp = () => {
 
                 <input
                   className="p-3 my-2 bg-gray-700 rounded"
-                  type="profession"
+                  type="work"
                   value={user.work}
                   onChange={handleInput}
                   placeholder="profession"
-                  name="profession"
+                  name="work"
                 />
 
                 <input
@@ -110,7 +133,7 @@ const SignUp = () => {
               </form>
               <p>
                 <span className="text-gray-600">Already have an account?</span>{" "}
-                <Link to="/Signin">SignIn</Link>
+                <Link to="/signin">SignIn</Link>
               </p>
             </div>
           </div>
