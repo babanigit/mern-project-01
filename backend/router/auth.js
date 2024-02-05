@@ -105,13 +105,29 @@ router.post("/signin", async (req, res) => {
     // for getting the email data from database
     // first email is backend and second is from frontend
     // it will search for u the email u mentioned
+
+    // and it will store the whole register data in userLogin
     const userLogin = await User.findOne({ email: email });
     console.log("useLogin data")
     console.log(userLogin);
 
     // this /if' is to check login credentials...
     if (userLogin) {
+
       // bcrypt.compare will return boolean
+      // userLogin.password from whole registered data 
+
+      // for example this ....
+
+      // {
+      //   _id: new ObjectId('65bb88cf1370b1194aa057da'),
+      //   name: 'aniket panchal',
+      //   email: 'mikasa7@gmail.com',
+      //   phone: 1234567889,
+      //   work: 'mern-dev',
+      //   password: '$2a$12$tL0yF2qs3Dp8zMD.tZHqCe/PH8Ugx4UVZoY1fuuA.phT/2veurzie',
+      //   cPassword: '$2a$12$eUELCJNgnDP22b57fIPqL.Sk9EzGhlr1f/vB/1KnrKJjV9rT0.hbq'
+
       const isMatch = await bcrypt.compare(password, userLogin.password);
 
 
@@ -119,10 +135,13 @@ router.post("/signin", async (req, res) => {
       const token = await userLogin.generateAuthToken();
       // console.log(token);
 
+
+
       // cookie
       res.cookie("jwtToken", token , {
-        expires: new Date(Date.now() + 2589000000)
-      })
+        expires: new Date(Date.now() + 2589000000),
+        httpOnly: true
+      });
 
 
 
@@ -141,5 +160,13 @@ router.post("/signin", async (req, res) => {
     console.log(err);
   }
 });
+
+
+
+// about page
+router.get("/about", (req, res) => {
+  res.send("hello about world  from the server");
+});
+
 
 module.exports = router;

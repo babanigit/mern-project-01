@@ -47,7 +47,9 @@ const SignUp = () => {
         cPassword,
       }),
     });
+
     const data = await res.json();
+    
     if (data.Status === 422 || !data) {
       window.alert("invalid Registration");
       console.log("invalid Registration");

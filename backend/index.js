@@ -15,20 +15,22 @@ app.use(express.json());
 // for routing to router/auth
 app.use(require('./router/auth'));
 
-// Middleware
 
-const middleware = (req, res, next) => {
-  console.log("hello my middleware");
-  next();
-};
+
+// // Middleware
+
+// const middleware = (req, res, next) => {
+//   console.log("hello my middleware");
+//   next();
+// };
 
 // app.get("/", (req, res) => {
 //   res.send("hello world  from the server");
 // });
 
-app.get("/about", middleware, (req, res) => {
-  res.send("hello about world  from the server");
-});
+// app.get("/about", middleware, (req, res) => {
+//   res.send("hello about world  from the server");
+// });
 
 app.use(cors());
 app.use(express.json());
