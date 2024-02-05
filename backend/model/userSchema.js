@@ -65,6 +65,7 @@ userSchema.methods.generateAuthToken = async function() {
         return tokenHello;
 
     }catch (err) {
+        console.log("error from token")
         console.log(err);
     }
 }

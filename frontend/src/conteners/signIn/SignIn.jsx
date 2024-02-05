@@ -5,18 +5,41 @@ import { useNavigate, Link } from "react-router-dom";
 
 const SignIn = () => {
 
-
-  
   const history = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  console.log(email)
+
   const [error, setError] = useState('')
 
 
   async function submit(e) {
+    console.log("clicked")
       e.preventDefault();
+
+      const res = await fetch('/signin', {
+        method : "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        })
+      });
+
+      const data = res.json();
+      
+      if(res.status === 400 || !data) {
+        console.log("invalid data");
+      }else {
+        console.log("login successful");
+        history("/home", { replace: true });
+      }
+
+
 
       // signInWithEmailAndPassword(database, email, password).then(
       //     (data) => {
@@ -53,34 +76,6 @@ const SignIn = () => {
 
   return (
     <>
-    {/* <div className="login">
-            <h1>Login</h1>
-
-            <form action="POST">
-                <input
-                    type="email"
-                    onChange={(e) => {
-                        setEmail(e.target.value);
-                    }}
-                    placeholder="Email"
-                />
-                <input
-                    type="password"
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}
-                    placeholder="Password"
-                />
-                <input type="submit" onClick={submit} />
-            </form>
-
-            <br />
-            <p>OR</p>
-            <br />
-
-            <Link to="/signup">Signup Page</Link>
-        </div> */}
-
     <div className='w-full h-screen'>
       {/* <img 
         className='hidden sm:block absolute w-full h-full object-cover bg-white'
@@ -105,17 +100,19 @@ const SignIn = () => {
               <input
                 onChange={(e) => setEmail(e.target.value)} 
                 className='p-3 my-2 bg-gray-700 rounded' 
+                value={email}
                 type='email' 
                 placeholder='Email' />
               <input 
                 onChange={(e) => setPassword(e.target.value)}
                 className='p-3 my-2 bg-gray-700 rounded' 
+                value={password}
                 type='password' 
                 placeholder='Password'
                 autoComplete='current-password'
               />
               <button className='bg-red-600 py-3 my-6 rounded font-bold'>Sign In</button>
-              <div className='flex justify-between items-center text-sm text-gray-600'>
+              <div className=' flex justify-between items-center text-sm text-gray-600'>
                 <p><input className='mr-2' type='checkbox'/>Remember me</p>
                 <p className='text-gray-400'>Need Help?</p>
               </div>

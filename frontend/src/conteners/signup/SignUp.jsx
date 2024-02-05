@@ -14,6 +14,8 @@ const SignUp = () => {
     cPassword: "",
   });
 
+
+  // on change
   let name, value;
   const handleInput = (e) => {
     name = e.target.name;
@@ -25,6 +27,8 @@ const SignUp = () => {
     console.log(user);
   };
 
+
+  // on click 
   const submit = async (e) => {
     e.preventDefault();
     const { name, email, phone, work, password, cPassword } = user;
