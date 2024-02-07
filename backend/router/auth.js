@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 
 require("../db/conn");
 const User = require("../model/userSchema");
+const Authenticate = require("../middleware/authenticate");
 
 router.get("/", (req, res) => {
   res.send("hello world  from the server router js");
@@ -130,15 +131,14 @@ router.post("/signin", async (req, res) => {
 
       const isMatch = await bcrypt.compare(password, userLogin.password);
 
-
       // jsonwebtoken
       const token = await userLogin.generateAuthToken();
-      // console.log(token);
-
+      console.log("TOKEN");
+      console.log(token); 
 
 
       // cookie
-      res.cookie("jwtToken", token , {
+      res.cookie("jwtTokenBablu", token , {
         expires: new Date(Date.now() + 2589000000),
         httpOnly: true
       });
@@ -164,8 +164,8 @@ router.post("/signin", async (req, res) => {
 
 
 // about page
-router.get("/about", (req, res) => {
-  res.send("hello about world  from the server");
+router.get("/about", Authenticate ,(req, res) => {
+  res.send("hello ' about '  from the server");
 });
 
 

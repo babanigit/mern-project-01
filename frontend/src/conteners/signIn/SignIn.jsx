@@ -96,6 +96,7 @@ const SignIn = () => {
 
 
             <form 
+              method="POST"
               onSubmit={submit}
               className='w-full flex flex-col py-4'>
 
