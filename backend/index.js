@@ -1,13 +1,14 @@
 // import { request } from "express";
-const dotenv = require("dotenv");
+
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
+// sjust use it one time in index.js and no need to initialize it again and again
+const dotenv = require("dotenv");
 dotenv.config({ path:'./config.env'});
 
-const PORT =  process.env.PORT_URL || 3001;
+const PORT =  process.env.PORT_URL || process.env.PORT_NO;
 
 
 // we exported conn.js 
@@ -38,7 +39,6 @@ app.use(require('./router/auth'));
 
 app.use(cors());
 app.use(express.json());
-
 
 
 app.listen(PORT, () => {

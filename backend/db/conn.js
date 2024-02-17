@@ -1,9 +1,6 @@
 // THIS IS CONNECTION TO THE MONGODB 
 const mongoose = require("mongoose");
 
-const dotenv = require("dotenv");
-dotenv.config({ path:'./config.env'});
-
 
 // we hided this link in config.env
 const DB =process.env.DATABASE
