@@ -136,16 +136,12 @@ router.post("/signin", async (req, res) => {
       console.log("TOKEN");
       console.log(token); 
 
-
       // cookie
       res.cookie("jwtTokenBablu", token , {
         expires: new Date(Date.now() + 2589000000),
         httpOnly: true
       });
 
-
-
-      
       // this 'if statement' is for checking passwd credentials...
       if (!isMatch) {
         // res.json({ error: "user error" });
