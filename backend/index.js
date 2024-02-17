@@ -5,7 +5,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
-const PORT =  process.env.PORT || 3001;
+dotenv.config({ path:'./config.env'});
+
+const PORT =  process.env.PORT_URL || 3001;
 
 
 // we exported conn.js 

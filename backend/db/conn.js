@@ -1,18 +1,22 @@
 // THIS IS CONNECTION TO THE MONGODB 
-
-
-
 const mongoose = require("mongoose");
-// will hide this DB data afterwards
-const DB ="mongodb+srv://creativeap07:creativeap07@cluster0.dzqxtv5.mongodb.net/mern?retryWrites=true&w=majority"
 
+const dotenv = require("dotenv");
+dotenv.config({ path:'./config.env'});
+
+
+// we hided this link in config.env
+const DB =process.env.DATABASE
+
+
+// MAIN CONNECTION TO THE MONGODB
 mongoose
   .connect(DB)
   .then(() => {
     console.log("connection successful to the mongodb database.... :)");
   })
   .catch(() => {
-    console.log("not connected to the database :(");
+    console.log("not connected to the mongog db database :(");
   });
 
 
