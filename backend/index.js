@@ -5,14 +5,10 @@ const cors = require("cors");
 const app = express();
 
 
-app.use(cors(
-  {
-    origin:["https://frontend-ivory-delta-77.vercel.app"],
-    methods:["P0ST","GET"],
-    credentials:true
-    
-  }
-));
+
+
+
+
 
 // sjust use it one time in index.js and no need to initialize it again and again
 const dotenv = require("dotenv");
@@ -49,6 +45,15 @@ app.use(require('./router/auth'));
 // });
 
 // app.use(cors());
+app.use(cors(
+  {
+    origin:["https://frontend-ivory-delta-77.vercel.app"],
+    methods:["P0ST","GET"],
+    credentials:true,
+  }
+));
+
+
 app.use(express.json());
 
 
