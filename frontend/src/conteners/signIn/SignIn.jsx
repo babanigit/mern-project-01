@@ -19,7 +19,7 @@ const SignIn = () => {
     console.log("clicked")
       e.preventDefault();
 
-      const res = await fetch('/signin', {
+      const res = await fetch('backend-api-orcin.vercel.app/signin', {
         method : "POST",
         headers: {
           "Content-Type": "application/json",
