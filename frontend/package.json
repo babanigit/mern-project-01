@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy":"https://mern-project-01-server-frh87f5b6-aniket-panchals-projects.vercel.app/",
+  "proxy":"https://backend-phy1tom9i-aniket-panchals-projects.vercel.app/",
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
