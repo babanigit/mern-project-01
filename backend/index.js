@@ -48,7 +48,7 @@ app.use(require('./router/auth'));
 //   res.send("hello about world  from the server");
 // });
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 
