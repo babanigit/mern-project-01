@@ -4,9 +4,6 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-// sjust use it one time in index.js and no need to initialize it again and again
-const dotenv = require("dotenv");
-dotenv.config({ path:'./config.env'});
 
 app.use(cors(
   {
@@ -16,6 +13,11 @@ app.use(cors(
     
   }
 ));
+
+// sjust use it one time in index.js and no need to initialize it again and again
+const dotenv = require("dotenv");
+dotenv.config({ path:'./config.env'});
+
 
 const PORT =  process.env.PORT_URL || process.env.PORT_NO;
 
