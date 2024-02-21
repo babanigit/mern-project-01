@@ -13,6 +13,7 @@ app.use(cors(
     origin:["https://frontend-qn86mh5ij-aniket-panchals-projects.vercel.app/"],
     methods:["P0ST","GET"],
     credentials:true
+    
   }
 ));
 
@@ -45,7 +46,7 @@ app.use(require('./router/auth'));
 //   res.send("hello about world  from the server");
 // });
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 
