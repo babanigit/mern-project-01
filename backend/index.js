@@ -5,14 +5,14 @@ const cors = require("cors");
 const app = express();
 
 
-app.use(cors(
-  {
-    origin:["https://frontend-qn86mh5ij-aniket-panchals-projects.vercel.app"],
-    methods:["P0ST","GET"],
-    credentials:true
+// app.use(cors(
+//   {
+//     origin:["https://frontend-qn86mh5ij-aniket-panchals-projects.vercel.app"],
+//     methods:["P0ST","GET"],
+//     credentials:true
     
-  }
-));
+//   }
+// ));
 
 // sjust use it one time in index.js and no need to initialize it again and again
 const dotenv = require("dotenv");
