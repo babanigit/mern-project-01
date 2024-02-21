@@ -1,10 +1,10 @@
 
 
-"proxy":"mern-project-01-server-19x2g8pmw-aniket-panchals-projects.vercel.app",
+"proxy":"https://backend-r33sslyu5-aniket-panchals-projects.vercel.app/",
 
 "proxy":"http://localhost:3001/",
 
-PORT=https://mern-project-01-server-frh87f5b6-aniket-panchals-projects.vercel.app/
+PORT=https://backend-r33sslyu5-aniket-panchals-projects.vercel.app
 
 
-PORT_URL=https://mern-project-01-server-frh87f5b6-aniket-panchals-projects.vercel.app/
+PORT_URL=https://backend-r33sslyu5-aniket-panchals-projects.vercel.app
