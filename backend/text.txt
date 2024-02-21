@@ -4,7 +4,7 @@
 
 "proxy":"http://localhost:3001/",
 
-PORT=mern-project-01-server-19x2g8pmw-aniket-panchals-projects.vercel.app
+PORT=https://mern-project-01-server-frh87f5b6-aniket-panchals-projects.vercel.app/
 
 
-PORT_URL=mern-project-01-server-ih8b8s8mm-aniket-panchals-projects.vercel.app
+PORT_URL=https://mern-project-01-server-frh87f5b6-aniket-panchals-projects.vercel.app/

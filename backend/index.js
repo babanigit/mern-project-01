@@ -8,6 +8,14 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config({ path:'./config.env'});
 
+app.use(cors(
+  {
+    origin:["https://mern-project-01-server-frh87f5b6-aniket-panchals-projects.vercel.app/"],
+    methods:["P0ST","GET"],
+    credentials:true
+  }
+));
+
 const PORT =  process.env.PORT_URL || process.env.PORT_NO;
 
 
