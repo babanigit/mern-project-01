@@ -16,7 +16,11 @@ dotenv.config({ path:'./config.env'});
 
 app.use(cors(
   {
+<<<<<<< HEAD
     origin:["https://mern-project-01-server-frh87f5b6-aniket-panchals-projects.vercel.app/"],
+=======
+    origin:["https://frontend-qn86mh5ij-aniket-panchals-projects.vercel.app/"],
+>>>>>>> be22097 ( new added)
     methods:["P0ST","GET"],
     credentials:true
   }
