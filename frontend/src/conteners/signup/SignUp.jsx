@@ -34,10 +34,14 @@ const SignUp = () => {
     const { name, email, phone, work, password, cPassword } = user;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const res = await fetch('/register', {
 =======
     const res = await fetch("https://backend-api-orcin.vercel.app/register", {
 >>>>>>> 2c83a55 (trying to deploy)
+=======
+    const res = await fetch("/register", {
+>>>>>>> 98e30eb ( before pull)
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -14,6 +14,7 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config({ path:'./config.env'});
 
+<<<<<<< HEAD
 app.use(cors(
   {
 <<<<<<< HEAD
@@ -25,6 +26,15 @@ app.use(cors(
     credentials:true
   }
 ));
+=======
+// app.use(cors(
+//   {
+//     origin:["https://frontend-qn86mh5ij-aniket-panchals-projects.vercel.app/"],
+//     methods:["P0ST","GET"],
+//     credentials:true
+//   }
+// ));
+>>>>>>> 98e30eb ( before pull)
 
 const PORT =  process.env.PORT_URL || process.env.PORT_NO;
 

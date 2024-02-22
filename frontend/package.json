@@ -2,7 +2,11 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
   "proxy":"https://backend-r33sslyu5-aniket-panchals-projects.vercel.app",
+=======
+  "proxy":"http://localhost:3001/",
+>>>>>>> 98e30eb ( before pull)
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
