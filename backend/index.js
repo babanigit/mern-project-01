@@ -4,51 +4,28 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-
-
-
-
-
-
-// sjust use it one time in index.js and no need to initialize it again and again
+// just use it one time in index.js and no need to initialize it again and again
 const dotenv = require("dotenv");
-dotenv.config({ path:'./config.env'});
+dotenv.config({ path: "./config.env" });
 
-<<<<<<< HEAD
-app.use(cors(
-  {
-<<<<<<< HEAD
-    origin:["https://mern-project-01-server-frh87f5b6-aniket-panchals-projects.vercel.app/"],
-=======
-    origin:["https://frontend-qn86mh5ij-aniket-panchals-projects.vercel.app/"],
->>>>>>> be22097 ( new added)
-    methods:["P0ST","GET"],
-    credentials:true
-  }
-));
-=======
-// app.use(cors(
-//   {
-//     origin:["https://frontend-qn86mh5ij-aniket-panchals-projects.vercel.app/"],
-//     methods:["P0ST","GET"],
-//     credentials:true
-//   }
-// ));
->>>>>>> 98e30eb ( before pull)
+app.use(
+  cors({
+    origin: ["https://frontend-ivory-delta-77.vercel.app"],
+    methods: ["P0ST", "GET"],
+    credentials: true,
+  })
+);
 
-const PORT =  process.env.PORT_URL || process.env.PORT_NO;
+const PORT = process.env.PORT_URL || process.env.PORT_NO;
 
-
-// we exported conn.js 
-require("./db/conn")
+// we exported conn.js
+require("./db/conn");
 
 // this will enable us to use 'json' formatted data
 app.use(express.json());
 
 // for routing to router/auth
-app.use(require('./router/auth'));
-
-
+app.use(require("./router/auth"));
 
 // // Middleware
 
@@ -66,17 +43,15 @@ app.use(require('./router/auth'));
 // });
 
 // app.use(cors());
-app.use(cors(
-  {
-    origin:["https://frontend-ivory-delta-77.vercel.app"],
-    methods:["P0ST","GET"],
-    credentials:true,
-  }
-));
-
+// app.use(cors(
+//   {
+//     origin:["https://frontend-ivory-delta-77.vercel.app"],
+//     methods:["P0ST","GET"],
+//     credentials:true,
+//   }
+// ));
 
 app.use(express.json());
-
 
 app.listen(PORT, () => {
   console.log("server is running at " + PORT);
