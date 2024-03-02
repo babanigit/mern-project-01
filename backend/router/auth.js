@@ -140,22 +140,26 @@ router.post("/signin", async (req, res) => {
 
       const isMatch = await bcrypt.compare(password, userLogin.password);
 
-      // jsonwebtoken
-      const token = await userLogin.generateAuthToken();
-      console.log("singIn TOKEN is...");
-      console.log(token); 
-
-      // cookie
-      res.cookie("jwtTokenBablu", token , {
-        expires: new Date(Date.now() + 2589000000),
-        httpOnly: true
-      });
+    
 
       // this 'if statement' is for checking passwd credentials...
       if (!isMatch) {
         // res.json({ error: "user error" });
         res.status(400).json({ error: "invalid credentials pass " });
       } else {
+
+          // jsonwebtoken
+      const token = await userLogin.generateAuthToken();
+      console.log("singIn TOKEN is...");
+      console.log(token); 
+
+      // storing to cookie
+      // cookie
+      res.cookie("jwtTokenBablu", token , {
+        expires: new Date(Date.now() + 2589000000),
+        httpOnly: true
+      });
+
         res.json({ message: "user Signing Successfully" });
       }
 

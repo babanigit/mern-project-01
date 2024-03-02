@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Dashboard", href: "#", current: true },
@@ -121,7 +124,10 @@ export default function Header() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
+
+<Link to="/signin">
                           <a
+                          // onClick={SignIn}
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
@@ -130,6 +136,8 @@ export default function Header() {
                           >
                             Sign out
                           </a>
+
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>

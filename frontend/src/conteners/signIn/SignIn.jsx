@@ -96,9 +96,9 @@ const SignIn = () => {
         // src={wallpaper2}
         alt='/'
       /> */}
-      <div className='bg-black/60 fixed top-0 left-0 w-full h-screen text-red-50 flex justify-center'> </div>
+      <div className='fixed top-0 left-0 w-full h-screen bg-gray-500  flex justify-center'> </div>
       <div className='fixed w-full px-4 py-24 z-50'>
-        <div className='max-w-[450px] h-[500px] mx-auto bg-black/75 text-white'>
+        <div className='max-w-[450px] h-[500px] mx-auto bg-gray-300 text-black border-2 rounded-lg'>
           <div className='max-w-[320px] mx-auto py-16'>
             {/* <h1 className='text-3xl font-bold'>Sign In</h1> */}
 
@@ -114,19 +114,19 @@ const SignIn = () => {
 
               <input
                 onChange={(e) => setEmail(e.target.value)} 
-                className='p-3 my-2 bg-gray-700 rounded' 
+                className='p-3 my-2  rounded' 
                 value={email}
                 type='email' 
                 placeholder='Email' />
               <input 
                 onChange={(e) => setPassword(e.target.value)}
-                className='p-3 my-2 bg-gray-700 rounded' 
+                className='p-3 my-2  rounded' 
                 value={password}
                 type='password' 
                 placeholder='Password'
                 autoComplete='current-password'
               />
-              <button className='bg-red-600 py-3 my-6 rounded font-bold'>Sign In</button>
+              <button className='bg-purple-600 py-3 my-6 rounded font-bold'>Sign In</button>
               <div className=' flex justify-between items-center text-sm text-gray-600'>
                 <p><input className='mr-2' type='checkbox'/>Remember me</p>
                 <p className='text-gray-400'>Need Help?</p>

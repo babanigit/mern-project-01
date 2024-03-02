@@ -67,14 +67,14 @@ const SignUp = () => {
   return (
     <>
       <div className=" w-full h-screen">
-        <div className=" bg-black/60 fixed top-0 left-0 w-full h-screen"></div>
+        <div className=" bg-gray-500 fixed top-0 left-0 w-full h-screen"></div>
         <div className=" fixed w-full px-4 py-24 z-50">
-          <div className="max-w-[450px] h-[630px] mx-auto bg-black/75 text-white">
+          <div className="max-w-[450px] h-[630px] mx-auto bg-gray-300 border-2 rounded-lg">
             <div className="max-w-[320px] mx-auto py-16">
               {/* <h1 className="text-3xl font-bold">Sign Up</h1> */}
               <form className="w-full flex flex-col py-4" method="POST">
                 <input
-                  className="p-3 my-2 bg-gray-700 rounded"
+                  className="p-3 my-2  text-black rounded"
                   type="text"
                   id="name"
                   name="name"
@@ -85,7 +85,7 @@ const SignUp = () => {
 
                 <input
                   placeholder="email"
-                  className="p-3 my-2 bg-gray-700 rounded"
+                  className="p-3 my-2  text-black rounded"
                   type="email"
                   value={user.email}
                   onChange={handleInput}
@@ -93,7 +93,7 @@ const SignUp = () => {
                 />
 
                 <input
-                  className="p-3 my-2 bg-gray-700 rounded"
+                  className="p-3 my-2  text-black rounded"
                   type="phone"
                   value={user.phone}
                   onChange={handleInput}
@@ -102,7 +102,7 @@ const SignUp = () => {
                 />
 
                 <input
-                  className="p-3 my-2 bg-gray-700 rounded"
+                  className="p-3 my-2  text-black rounded"
                   type="work"
                   value={user.work}
                   onChange={handleInput}
@@ -111,7 +111,7 @@ const SignUp = () => {
                 />
 
                 <input
-                  className="p-3 my-2 bg-gray-700 rounded"
+                  className="p-3 my-2  text-black rounded"
                   type="password"
                   value={user.password}
                   onChange={handleInput}
@@ -120,7 +120,7 @@ const SignUp = () => {
                 />
 
                 <input
-                  className="p-3 my-2 bg-gray-700 rounded"
+                  className="p-3 my-2  text-black rounded"
                   type="cPassword"
                   value={user.cPassword}
                   onChange={handleInput}
@@ -130,7 +130,7 @@ const SignUp = () => {
 
                 {/* submit function */}
                 <button
-                  className="bg-red-600 py-3 my-6 rounded font-bold"
+                  className="bg-purple-600 py-3 my-6 rounded font-bold"
                   type="submit"
                   // function to submit the data in backend
                   onClick={submit}
