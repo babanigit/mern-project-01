@@ -16,7 +16,10 @@ const SignIn = () => {
 
 
   async function submit(e) {
-    console.log("clicked")
+
+    try {
+
+      console.log("clicked")
       e.preventDefault();
 
       const res = await fetch('/signin', {
@@ -29,8 +32,8 @@ const SignIn = () => {
           password,
         })
       });
-
       const data = await res.json();
+
       console.log("data")
       console.log(data)
       
@@ -38,9 +41,9 @@ const SignIn = () => {
         console.log("invalid data");
       }else {
         console.log("login successful");
+        alert("login successfull")
         history("/home", { replace: true });
       }
-
 
 
       // signInWithEmailAndPassword(database, email, password).then(
@@ -74,6 +77,15 @@ const SignIn = () => {
       // } catch (e) {
       //     console.log(e);
       // }
+
+
+      
+    } catch (error) {
+      console.error(error);
+      console.log("error in singin.jsx")
+    }
+
+  
   }
 
   return (

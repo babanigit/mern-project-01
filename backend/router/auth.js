@@ -52,8 +52,11 @@ router.get("/", (req, res) => {
 
 // using await async
 router.post("/register", async (req, res) => {
+
+  try {
+
   // this is request from postman or data stored using postman or the frontend
-  const { name, email, phone, work, password, cPassword } = req.body;
+  const { name, email, phone, work, password, cPassword } = await req.body;
 
   // those three lines are for checking if postman is working properly or not??
   console.log("name is : " + name);
@@ -64,11 +67,12 @@ router.post("/register", async (req, res) => {
     // status(422)  this will give u error type
     return res.status(422).json({ error: "pls fill the registration form" });
   }
+  else {
 
-  // note:- the below code gives u error cause its calling body twice , idk exactly yyy
-  // res.json({ message: req.body });
+    // note:- the below code gives u error cause its calling body twice , idk exactly yyy ,cause u cant call two res 
+    // res.json({ message: req.body });
 
-  try {
+ 
     const userExist = await User.findOne({ email: email });
     console.log(userExist);
 
@@ -86,6 +90,11 @@ router.post("/register", async (req, res) => {
     res
       .status(201)
       .json({ message: "user registered successfully in backend" });
+
+
+
+  }
+
   } catch (err) {
     console.log(err);
   }
@@ -109,7 +118,7 @@ router.post("/signin", async (req, res) => {
 
     // and it will store the whole register data in userLogin
     const userLogin = await User.findOne({ email: email });
-    console.log("useLogin data")
+    console.log("userLogin data")
     console.log(userLogin);
 
     // this /if' is to check login credentials...
@@ -133,7 +142,7 @@ router.post("/signin", async (req, res) => {
 
       // jsonwebtoken
       const token = await userLogin.generateAuthToken();
-      console.log("TOKEN");
+      console.log("singIn TOKEN is...");
       console.log(token); 
 
       // cookie
@@ -149,9 +158,12 @@ router.post("/signin", async (req, res) => {
       } else {
         res.json({ message: "user Signing Successfully" });
       }
+
+
     } else {
       res.status(400).json({ error: "invalid credentials user " });
     }
+
   } catch (err) {
     console.log(err);
   }
