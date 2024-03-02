@@ -8,3 +8,6 @@ backend "https://backend-r33sslyu5-aniket-panchals-projects.vercel.app"
 "proxy":"https://backend-r33sslyu5-aniket-panchals-projects.vercel.app/",
 PORT_URL=https://backend-r33sslyu5-aniket-panchals-projects.vercel.app
 
+
+![ss1](ss/mernss1.png)
+![ss2](ss/mernss2.png)
