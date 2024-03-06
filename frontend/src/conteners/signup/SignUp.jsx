@@ -34,7 +34,7 @@ const SignUp = () => {
     const { name, email, phone, work, password, cPassword } = user;
 
 
-    const res = await fetch("/register", {
+    const res = await fetch("https://backend-api-orcin.vercel.app/register", {
 
       method: "POST",
       headers: {
