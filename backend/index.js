@@ -6,7 +6,7 @@ const app = express();
 
 // just use it one time in index.js and no need to initialize it again and again
 const dotenv = require("dotenv");
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: "./.env" });
 
 app.use(
   cors({
