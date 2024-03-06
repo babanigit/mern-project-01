@@ -28,8 +28,8 @@ const SignIn = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
-          password,
+          email:email,
+          password:password,
         })
       });
       const data = await res.json();
