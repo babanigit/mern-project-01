@@ -1,12 +1,10 @@
 # mern-project-01
-note:- this project is working perfectly on local server but cant deploy online , will figure out this soon... :)
 
-fronted "https://frontend-ivory-delta-77.vercel.app"
-backend "https://backend-r33sslyu5-aniket-panchals-projects.vercel.app"
+the backend and frontend is connected with each other throw vercel.app
 
+fronted - "https://frontend-ivory-delta-77.vercel.app"
+backend_api - "https://backend-api-orcin.vercel.app/"
 
-"proxy":"https://backend-r33sslyu5-aniket-panchals-projects.vercel.app/",
-PORT_URL=https://backend-r33sslyu5-aniket-panchals-projects.vercel.app
 
 
 ![ss1](ss/mernss1.png)
