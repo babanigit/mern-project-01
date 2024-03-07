@@ -160,7 +160,12 @@ router.post("/signin", async (req, res) => {
         httpOnly: true
       });
 
-        res.json({ message: "user Signing Successfully" });
+        res.json({ 
+          message: "user Signing Successfully",
+          token:token,
+          user:userLogin,
+      
+      });
       }
 
 

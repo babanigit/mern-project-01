@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 
+
 const SignIn = () => {
 
   const history = useNavigate();
@@ -36,6 +37,13 @@ const SignIn = () => {
 
       console.log("data")
       console.log(data)
+
+      console.log("data of the token")
+      console.log(await data.token)
+      const tokenValue =data.token;
+
+      window.localStorage.setItem("token1",data.token)
+      
       
       if(res.status === 400 || !data) {
         console.log("invalid data");
@@ -44,41 +52,6 @@ const SignIn = () => {
         alert("login successfull")
         history("/home", { replace: true });
       }
-
-
-      // signInWithEmailAndPassword(database, email, password).then(
-      //     (data) => {
-      //       console.log(data, "authData");
-      //       history('/home')
-      //     }
-      //   ).catch(err=>{
-      //     alert(err.code)
-
-      //     setError(error.message)
-
-      //   })
-      
-      // try {
-      //     await axios
-      //         .post("http://localhost:8000/", {
-      //             email, password
-      //         })
-      //         .then((res) => {
-      //             if (res.data === "exist") {
-      //                 history("/home", { state: { id: email } });
-      //             } else if (res.data === "notexist") {
-      //                 alert("User have not sign up");
-      //             }
-      //         })
-      //         .catch((e) => {
-      //             alert("wrong details");
-      //             console.log(e);
-      //         });
-      // } catch (e) {
-      //     console.log(e);
-      // }
-
-
       
     } catch (error) {
       console.error(error);

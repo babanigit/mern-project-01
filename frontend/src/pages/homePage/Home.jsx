@@ -6,6 +6,9 @@ const Home = () => {
     <>
       <Header />
       <div>hello home</div>
+      <div>
+        <button onClick={()=>{ localStorage.removeItem("token");}} > clear storage</button>
+      </div>
     </>
   );
 };
