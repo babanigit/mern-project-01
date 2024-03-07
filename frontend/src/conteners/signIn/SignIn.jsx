@@ -42,7 +42,7 @@ const SignIn = () => {
       console.log(await data.token)
       const tokenValue =data.token;
 
-      window.localStorage.setItem("token1",data.token)
+      window.localStorage.setItem("token",data.token)
       
       
       if(res.status === 400 || !data) {
