@@ -8,13 +8,13 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
 
-app.use(
-  cors({
-    origin: ["https://frontend-ivory-delta-77.vercel.app"],
-    methods: ["P0ST", "GET"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["https://frontend-ivory-delta-77.vercel.app"],
+//     methods: ["P0ST", "GET"],
+//     credentials: true,
+//   })
+// );
 
 const PORT = process.env.PORT_URL || process.env.PORT_NO;
 
@@ -42,7 +42,7 @@ app.use(require("./router/auth"));
 //   res.send("hello about world  from the server");
 // });
 
-app.use(cors());
+// app.use(cors());
 // app.use(cors(
 //   {
 //     origin:["https://frontend-ivory-delta-77.vercel.app"],
