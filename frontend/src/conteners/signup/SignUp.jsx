@@ -39,7 +39,7 @@ const SignUp = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      mode:"no-cors",
+      // mode:"no-cors",
       body: JSON.stringify({
         name,
         email,
@@ -51,6 +51,8 @@ const SignUp = () => {
     });
 
     const data = await res.json();
+    
+    console.log(data)
     
     if (data.Status === 422 || !data) {
       window.alert("invalid Registration");

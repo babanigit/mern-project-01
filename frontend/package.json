@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
 
-  "proxy":"https://backend-api-orcin.vercel.app/",
+  "proxy":"http://localhost:3001/",
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
