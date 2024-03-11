@@ -34,12 +34,12 @@ const SignUp = () => {
     const { name, email, phone, work, password, cPassword } = user;
 
 
-    const res = await fetch("https://backend-api-orcin.vercel.app/register", {
-
+    const res = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      mode:"no-cors",
       body: JSON.stringify({
         name,
         email,
@@ -60,7 +60,7 @@ const SignUp = () => {
       console.log(" successful ");
 
       //  we used navigate instate of history.push
-      history("/signin", { replace: true });
+      // history("/signin", { replace: true });
     }
   };
 

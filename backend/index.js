@@ -22,6 +22,8 @@ const PORT = process.env.PORT_URL || process.env.PORT_NO;
 // 2
 // we exported conn.js
 require("./db/conn");
+app.use(cors());
+
 
 // this will enable us to use 'json' formatted data
 app.use(express.json());
@@ -44,7 +46,6 @@ app.use(require("./router/auth"));
 //   res.send("hello about world  from the server");
 // });
 
-app.use(cors());
 // app.use(cors(
 //   {
 //     origin:["https://frontend-ivory-delta-77.vercel.app"],
