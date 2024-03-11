@@ -34,12 +34,12 @@ const SignUp = () => {
     const { name, email, phone, work, password, cPassword } = user;
 
 
-    const res = await fetch("/register", {
+    const res = await fetch("https://mern-project-01-server.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      // mode:"no-cors",
+
       body: JSON.stringify({
         name,
         email,
@@ -51,7 +51,7 @@ const SignUp = () => {
     });
 
     const data = await res.json();
-    
+
     console.log(data)
     
     if (data.Status === 422 || !data) {
